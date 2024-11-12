@@ -42,3 +42,25 @@ export function renderListWithTemplate(
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
+
+// function to count cart items
+export function countCartItems() {
+  const cart = JSON.parse(localStorage.getItem('so-cart')) || [];
+  return cart.length;
+}
+
+// function to display counted cart items
+export function renderCartCount() {
+  const cartCount = countCartItems();
+  const cartElement = document.querySelector('.cart-count');
+  
+  if (cartElement) {
+    cartElement.textContent = cartCount > 0 ? `${cartCount}` : '';
+    
+    if (cartCount > 0) {
+      cartElement.style.backgroundColor = '';
+    } else {
+      cartElement.style.backgroundColor = 'white';
+    }
+  }
+}
