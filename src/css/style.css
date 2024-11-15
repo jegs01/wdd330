@@ -159,6 +159,12 @@ button {
 .product-card p {
   margin: 0.5em 0;
 }
+.product-card em {
+  background-color: red;
+  color: white;
+  padding: 0.25em;
+  font-size: var(--small-font);
+}
 
 .card__brand {
   font-size: var(--small-font);
