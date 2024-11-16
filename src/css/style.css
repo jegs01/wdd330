@@ -224,6 +224,11 @@ button {
   grid-column: 2;
 }
 
+.cart-card__remove {
+  text-align: right;
+  padding-right: 1rem;
+}
+
 .cart-card__quantity {
   grid-row: 1;
   grid-column: 3;
