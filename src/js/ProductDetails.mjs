@@ -31,15 +31,25 @@ export default class ProductDetails {
   renderProductDetails() {
     const productContainer = document.getElementById('productDetails');
     document.title = `${this.product.Brand.Name} | ${this.product.NameWithoutBrand}`;
+
+    let discountAmount = '';
+    let discountFlag= '';
+    if (this.product.FinalPrice < this.product.SuggestedRetailPrice) {
+      discountAmount = `<p><em class="product-detail__discount">You save $${(this.product.SuggestedRetailPrice - this.product.FinalPrice).toFixed(2)}!</em></p>`;
+      discountFlag = '<h4 class="product-detail__flag">Discounted</h4>';
+    };
+
     productContainer.innerHTML = `
       <h3>${this.product.Brand.Name}</h3>
       <h2 class="divider">${this.product.NameWithoutBrand}</h2>
+      ${discountFlag}
       <img
         class="divider"
         src="${this.product.Image}"
         alt="${this.product.NameWithoutBrand}"
       />
       <p class="product-card__price">$${this.product.FinalPrice.toFixed(2)}</p>
+      ${discountAmount}
       <p class="product__color">${this.product.Colors[0].ColorName}</p>
       <p class="product__description">${this.product.DescriptionHtmlSimple}</p>
       <div class="product-detail__add">
