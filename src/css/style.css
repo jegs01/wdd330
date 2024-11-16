@@ -185,6 +185,19 @@ button {
   width: 100%;
 }
 
+.product-detail__flag {
+  color: red;
+  text-transform: uppercase;
+  margin-top: -.5rem;
+}
+
+.product-detail__discount {
+  background-color: red;
+  color: white;
+  padding: 0.25em;
+  font-size: var(--small-font);
+}
+
 /* Start cart list card styles */
 .cart-card {
   display: grid;
