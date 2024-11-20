@@ -50,10 +50,11 @@ export default class ProductDetails {
       discountAmount = `<p><em class="product-detail__discount">You save $${(this.product.SuggestedRetailPrice - this.product.FinalPrice).toFixed(2)}!</em></p>`;
       discountFlag = '<h4 class="product-detail__flag">Discounted</h4>';
     };
-  
+
     productContainer.innerHTML = `
       <h3>${this.product.Brand.Name}</h3>
       <h2 class="divider">${this.product.NameWithoutBrand}</h2>
+      ${discountFlag}
       <img
         class="divider"
         src="${this.product.Images.PrimaryLarge}"

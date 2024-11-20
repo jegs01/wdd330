@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from './utils.mjs';
+import { renderListWithTemplate } from "./utils.mjs";
 
 function capitalizeCategory(category) {
   return category
@@ -31,6 +31,7 @@ function productCardTemplate(product) {
           $${product.FinalPrice.toFixed(2)}
         </p>
         ${discountFlag}
+
         ${discount}
       </a>
     </li>`;
