@@ -64,7 +64,6 @@ export default class ProductDetails {
         <del>$${this.product.SuggestedRetailPrice.toFixed(2)}</del> 
         $${this.product.FinalPrice.toFixed(2)}
       </p>
-      ${discountFlag}
       ${discountAmount}
       <p class="product__color">${this.product.Colors[0]?.ColorName || 'No color available'}</p>
       <p class="product__description">${this.product.DescriptionHtmlSimple}</p>
