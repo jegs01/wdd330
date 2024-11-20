@@ -123,6 +123,21 @@ button {
   line-height: 1;
 }
 
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  border-top: 1px solid #ccc;
+}
+
+.cart-footer.hide {
+  display: none;
+}
+
+.cart-total {
+  font-weight: bold;
+}
+
 /* End cart icon styles */
 
 .mission {
@@ -160,6 +175,16 @@ button {
   margin: 0.5em 0;
 }
 
+.product-card__price del {
+  color: #888;
+  margin-right: 0.5em;
+}
+
+.product-card__price {
+  font-size: 1.2em;
+}
+
+
 .card__brand {
   font-size: var(--small-font);
 }
@@ -179,6 +204,10 @@ button {
   width: 100%;
 }
 
+.product-detail__flag {
+  color: red;
+} 
+
 /* Start cart list card styles */
 .cart-card {
   display: grid;
@@ -186,6 +215,7 @@ button {
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
+  position: relative;
 }
 
 .cart-card__image {
@@ -215,6 +245,74 @@ button {
   grid-column: 3;
 }
 
+.cart-card .remove-item {
+  position: absolute; 
+  top: 8px;
+  left: 8px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cart-card .remove-item:hover {
+  background-color: darkred;
+}
+
+.categories {
+  padding: 20px;
+  text-align: center;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.category-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-box img {
+  width: 64px; 
+  height: 64px;
+  margin-bottom: 10px;
+}
+
+.category-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-box p {
+  font-size: 1.2em;
+  margin: 0;
+  font-weight: bold;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -227,6 +325,7 @@ button {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
+
 }
 
 footer {
