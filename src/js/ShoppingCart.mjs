@@ -14,7 +14,7 @@ function cartItemTemplate(item, index) {
         <h2 class="card__name">${item.NameWithoutBrand}</h2>
       </a>
       <p class="cart-card__color">${item.Colors[0]?.ColorName || 'No color specified'}</p>
-      <p class="cart-card__quantity">qty: 1</p>
+      <p class="cart-card__quantity">qty: ${item.Quantity}</p>
       <p class="cart-card__price">$${item.FinalPrice.toFixed(2)}</p>
       <span class="remove-item" data-index="${index}">X</span>
     </li>`;
