@@ -33,7 +33,15 @@ export default class ProductDetails {
       cartItems = [];
     }
 
-    cartItems.push(this.product);
+    const indexInCart = cartItems.findIndex((item) => item.Id == this.productId); 
+
+    if (indexInCart != -1){
+      cartItems[indexInCart].Quantity += 1;
+    } else {
+      this.product["Quantity"] = 1;
+      cartItems.push(this.product);
+    }
+
     setLocalStorage('so-cart', cartItems);
     alert(`${this.product.Brand.Name} has been added to your cart!`);
     renderCartCount();
