@@ -38,7 +38,7 @@ export default class ProductDetails {
     if (indexInCart != -1){
       cartItems[indexInCart].Quantity += 1;
     } else {
-      this.product["Quantity"] = 1;
+      this.product['Quantity'] = 1;
       cartItems.push(this.product);
     }
 

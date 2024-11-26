@@ -8,5 +8,5 @@ cart.init();
 loadHeaderFooter();
 
 if (cart.total > 0) {
-    document.querySelector(".cart-footer").classList.remove("hide");
-  }
+  document.querySelector('.cart-footer').classList.remove('hide');
+}

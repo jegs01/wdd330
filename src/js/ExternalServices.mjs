@@ -9,37 +9,41 @@ function convertToJson(res) {
   if (res.ok) {
     return res.json();
   }
-  throw new Error('Failed to fetch data');
+  throw new Error(`Error: ${res.status} - ${res.statusText}`);
 }
 
 export default class ExternalServices {
   async getData() {
-    const response = await fetch(`${baseURL}products/search/${category}`);
-    const data = await convertToJson(response);
+    try {
+      const response = await fetch(`${baseURL}products/search/${category}`);
+      const data = await convertToJson(response);
 
-    if (Array.isArray(data)) {
-      return data;
+      if (Array.isArray(data)) {
+        return data;
+      }
+      if (data.Result && Array.isArray(data.Result)) {
+        return data.Result;
+      }
+      return [data];
+    } catch (error) {
+      console.error('Failed to fetch data:', error);
+      throw error;
     }
-    if (data.Result && Array.isArray(data.Result)) {
-      return data.Result;
-    }
-    return [data];
   }
 
   async checkout(order) {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(order),
-    };
+    try {
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order),
+      };
 
-    const response = await fetch(submitURL, options);
-    if (!response.ok) {
-      throw new Error('Checkout failed!');
+      const response = await fetch(submitURL, options);
+      return await convertToJson(response);
+    } catch (error) {
+      console.error('Checkout failed:', error);
+      throw error;
     }
-
-    return response.json();
   }
 }

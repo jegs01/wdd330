@@ -14,6 +14,7 @@
       <h2>Review & Place your Order</h2>
       <section class="checkout-form">
         <form id="checkoutForm" name="checkout">
+          <div id="errorMessages"></div>
           <fieldset>
             <legend>Shipping</legend>
             <div class="checkout__name">
@@ -47,9 +48,7 @@
             <div id="orderSummary">
               <ul>
                 <li>
-                  <label for="cartTotal"
-                    >Item Subtotal (<span id="num-items"></span>)</label
-                  >
+                  <label for="cartTotal">Item Subtotal (<span id="num-items"></span>)</label>
                   <p name="cartTotal" id="cartTotal"></p>
                 </li>
                 <li>

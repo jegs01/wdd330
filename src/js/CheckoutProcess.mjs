@@ -12,7 +12,7 @@ export default class CheckoutProcess {
     this.orderTotal = 0;
   }
 
-  init(zipCode = "00000") {
+  init(zipCode = '00000') {
     this.list = getLocalStorage(this.key) || [];
     this.calculateItemSummary();
     this.calculateOrderTotal(zipCode);
@@ -34,7 +34,7 @@ export default class CheckoutProcess {
 
   calculateOrderTotal(zipCode) {
     const shippingRate = 10.0;
-    const taxRate = 0.08; 
+    const taxRate = 0.08;
 
     this.shipping = shippingRate;
     this.tax = this.itemTotal * taxRate;
@@ -62,22 +62,28 @@ export default class CheckoutProcess {
   }
 
   async checkout(form) {
-    const formData = this.formDataToJSON(form);
-    const items = this.packageItems();
+    try {
+      const formData = this.formDataToJSON(form);
+      const items = this.packageItems();
 
-    const order = {
-      orderDate: new Date().toISOString(),
-      ...formData,
-      items,
-      orderTotal: this.orderTotal.toFixed(2),
-      shipping: this.shipping.toFixed(2),
-      tax: this.tax.toFixed(2),
-    };
+      const order = {
+        orderDate: new Date().toISOString(),
+        ...formData,
+        items,
+        orderTotal: this.orderTotal.toFixed(2),
+        shipping: this.shipping.toFixed(2),
+        tax: this.tax.toFixed(2),
+      };
 
-    const externalServices = new ExternalServices();
-    const response = await externalServices.checkout(order);
-
-    console.log('Order successful:', response);
+      const externalServices = new ExternalServices();
+      const response = await externalServices.checkout(order);
+      console.log('Order successful:', response);
+      localStorage.removeItem('so-cart');
+      window.location.href = '/checkout/success.html';
+    } catch (error) {
+      console.error('Checkout failed:', error);
+      throw error;
+    }
   }
 
   formDataToJSON(formElement) {
