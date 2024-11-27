@@ -124,8 +124,7 @@ button {
 }
 
 .cart-footer {
-  display: flex;
-  justify-content: space-between;
+  display: block;
   padding: 1em;
   border-top: 1px solid #ccc;
 }

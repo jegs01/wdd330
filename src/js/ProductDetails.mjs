@@ -45,6 +45,7 @@ export default class ProductDetails {
     setLocalStorage('so-cart', cartItems);
     alert(`${this.product.Brand.Name} has been added to your cart!`);
     renderCartCount();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   renderProductDetails() {
