@@ -46,7 +46,7 @@ export function renderListWithTemplate(
 // function to count cart items
 export function countCartItems() {
   const cart = JSON.parse(localStorage.getItem('so-cart')) || [];
-  return cart.length;
+  return cart.reduce((count, item) => count + (item.Quantity || 0), 0);
 }
 
 // function to display counted cart items
