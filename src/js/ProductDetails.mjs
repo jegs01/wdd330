@@ -46,6 +46,13 @@ export default class ProductDetails {
     alert(`${this.product.Brand.Name} has been added to your cart!`);
     renderCartCount();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    const cartIcon = document.querySelector('.cart');
+    cartIcon.classList.add('animated');
+
+    cartIcon.addEventListener("animationend", () => {
+      cartIcon.classList.remove('animated');
+    });
   }
 
   renderProductDetails() {
