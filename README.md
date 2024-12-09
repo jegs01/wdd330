@@ -1,20 +1,11 @@
-# sleepoutside
+# SleepOutside - BYUI WDD330 Team Project
 
 ## Description
 
-Use this as a starting point to complete the WDD 330 team activity: the SleepOutside web application. It scaffolds out a simple web app with Vite support to bundle up our assets.
+This project was developed as part of the **BYUI WDD330** class to **teach collaborative spirit** and encourage teamwork in web development. **SleepOutside** is an e-commerce website that specializes in selling outdoor products for adventurous living. It was built using **Vite**, a fast and efficient web bundler.  
 
-## Prerequisites
+I, **Kolawole Jegede**, was proud to be part of the development team. You can view the hosted project here: [SleepOutside Website](https://thriving-parfait-32c018.netlify.app/).  
 
-- You must have Node installed. visit https://byui-cit.github.io/advcss/lesson01/l01-software.html and skip to the Node section for instructions
+**#SleepOutside**
 
-## Setup
-
-- `npm install`
-- `npm run start` starts up a local server and updates on any JS or CSS/SCSS changes.
-
-## Other commands
-
-- `npm run build` to build final files when you are ready to turn in.
-- `npm run lint` to run ESLint against your code to find errors.
-- `npm run format` to run Prettier to automatically format your code.
+---

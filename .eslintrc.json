@@ -34,6 +34,7 @@
     "max-len": 0,
     "import/extensions": 0,
     "no-underscore-dangle": 0,
+    "import/namespace": "off",
     "consistent-return": 0,
     "radix": 0,
     "no-shadow": [
